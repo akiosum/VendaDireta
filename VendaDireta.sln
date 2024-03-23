@@ -1,0 +1,46 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VendaDireta.Presentation", "scr\VendaDireta.Presentation\VendaDireta.Presentation.csproj", "{BA8F2369-346C-4CFC-A732-672E7B19CDAE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VendaDireta.Aplication", "scr\VendaDireta.Aplication\VendaDireta.Aplication.csproj", "{6BD85A7A-DAB6-4F08-AC01-B314F864E4A0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VendaDireta.Domain", "scr\VendaDireta.Domain\VendaDireta.Domain.csproj", "{2E563155-829B-4D3C-88A2-D50AFBF61023}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VendaDireta.Infrastructure", "scr\VendaDireta.Infrastructure\VendaDireta.Infrastructure.csproj", "{5AD23D52-364D-4C55-81DE-68013F8765CA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VendaDireta.Shared", "scr\VendaDireta.Shared\VendaDireta.Shared.csproj", "{CAEA60DF-3EF5-4013-8525-C1580B4CDF8C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VendaDireta.Test", "tests\VendaDireta.Test\VendaDireta.Test.csproj", "{31C0D887-A670-478C-9F65-A43C85D01679}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BA8F2369-346C-4CFC-A732-672E7B19CDAE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA8F2369-346C-4CFC-A732-672E7B19CDAE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA8F2369-346C-4CFC-A732-672E7B19CDAE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA8F2369-346C-4CFC-A732-672E7B19CDAE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6BD85A7A-DAB6-4F08-AC01-B314F864E4A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6BD85A7A-DAB6-4F08-AC01-B314F864E4A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6BD85A7A-DAB6-4F08-AC01-B314F864E4A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6BD85A7A-DAB6-4F08-AC01-B314F864E4A0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2E563155-829B-4D3C-88A2-D50AFBF61023}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E563155-829B-4D3C-88A2-D50AFBF61023}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E563155-829B-4D3C-88A2-D50AFBF61023}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E563155-829B-4D3C-88A2-D50AFBF61023}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5AD23D52-364D-4C55-81DE-68013F8765CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5AD23D52-364D-4C55-81DE-68013F8765CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5AD23D52-364D-4C55-81DE-68013F8765CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5AD23D52-364D-4C55-81DE-68013F8765CA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CAEA60DF-3EF5-4013-8525-C1580B4CDF8C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CAEA60DF-3EF5-4013-8525-C1580B4CDF8C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CAEA60DF-3EF5-4013-8525-C1580B4CDF8C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CAEA60DF-3EF5-4013-8525-C1580B4CDF8C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{31C0D887-A670-478C-9F65-A43C85D01679}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{31C0D887-A670-478C-9F65-A43C85D01679}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{31C0D887-A670-478C-9F65-A43C85D01679}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{31C0D887-A670-478C-9F65-A43C85D01679}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
