@@ -27,7 +27,7 @@ public class CriarProdutoUseCaseTest
 
         // Act
 
-        var result = await criarProdutoUseCase.Handle(request, default);
+        var result = await criarProdutoUseCase.Handle(request, new CancellationToken());
 
         // Assert
 

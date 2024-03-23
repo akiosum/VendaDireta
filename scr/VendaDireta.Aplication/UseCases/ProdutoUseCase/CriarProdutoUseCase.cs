@@ -2,6 +2,7 @@
 using Mapster;
 using MediatR;
 using VendaDireta.Aplication.Abstractions;
+using VendaDireta.Aplication.Dto.Produto;
 using VendaDireta.Aplication.Requests.Produto;
 using VendaDireta.Domain.Contracts.Repositories;
 using VendaDireta.Domain.Entities;
@@ -11,9 +12,9 @@ namespace VendaDireta.Aplication.UseCases.ProdutoUseCase;
 public class CriarProdutoUseCase(
     ISender sender,
     IProdutoRepository produtoRepository)
-    : BaseUseCase<CriarProdutoRequest, Guid>(sender)
+    : BaseUseCase<CriarProdutoRequest, CriarProdutoDto>(sender)
 {
-    public override async Task<BaseResult<Guid>> Handle(
+    public override async Task<BaseResult<CriarProdutoDto>> Handle(
         CriarProdutoRequest request,
         CancellationToken cancellationToken)
     {
@@ -22,6 +23,6 @@ public class CriarProdutoUseCase(
 
         Produto produtoCriado = await produtoRepository.Inserir(produto, cancellationToken);
 
-        return produtoCriado.Id;
+        return new CriarProdutoDto(produtoCriado.Id);
     }
 }

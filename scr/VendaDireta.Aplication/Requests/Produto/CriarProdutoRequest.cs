@@ -1,4 +1,5 @@
 ﻿using VendaDireta.Aplication.Abstractions.Contracts;
+using VendaDireta.Aplication.Dto.Produto;
 
 namespace VendaDireta.Aplication.Requests.Produto;
 
@@ -7,4 +8,4 @@ public record CriarProdutoRequest(
     string DescricaoReduzida,
     decimal Preco,
     decimal Custo,
-    decimal EstoqueInicial) : IRequestUseCase<Guid>;
+    decimal EstoqueInicial) : IRequestUseCase<CriarProdutoDto>;

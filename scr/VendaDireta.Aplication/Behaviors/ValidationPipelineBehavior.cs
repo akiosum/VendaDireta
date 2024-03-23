@@ -4,6 +4,7 @@ using FastResults.Errors;
 using FastResults.Results;
 using FluentValidation;
 using MediatR;
+using VendaDireta.Shared.Errors;
 
 namespace VendaDireta.Aplication.Behaviors;
 
@@ -20,10 +21,7 @@ public class ValidationPipelineBehavior<TRequest, TResponse>(IEnumerable<IValida
             .Select(validator => validator.Validate(request))
             .SelectMany(result => result.Errors)
             .Where(error => error is not null)
-            .Select(error => new Error(
-                HttpStatusCode.BadRequest,
-                error.ErrorMessage,
-                TypeError.Validation))
+            .Select(error => VendaErro.Comum.Validacao(error.ErrorMessage))
             .Distinct()
             .ToList();
 
