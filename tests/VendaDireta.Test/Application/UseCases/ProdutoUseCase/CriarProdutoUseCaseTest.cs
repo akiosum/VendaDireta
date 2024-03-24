@@ -3,9 +3,8 @@ using Moq;
 using VendaDireta.Aplication.Requests.Produto;
 using VendaDireta.Aplication.UseCases.ProdutoUseCase;
 using VendaDireta.Domain.Contracts.Repositories;
-using VendaDireta.Domain.Entities;
 
-namespace VendaDireta.Test.Application.UseCases;
+namespace VendaDireta.Test.Application.UseCases.ProdutoUseCase;
 
 public class CriarProdutoUseCaseTest
 {
@@ -32,6 +31,6 @@ public class CriarProdutoUseCaseTest
         // Assert
 
         Assert.True(result.IsSuccess);
-        produtoRepositoryMock.Verify(pr => pr.Inserir(It.IsAny<Produto>(), default), Times.Once);
+        produtoRepositoryMock.Verify(pr => pr.Inserir(It.IsAny<VendaDireta.Domain.Entities.Produto>(), default), Times.Once);
     }
 }

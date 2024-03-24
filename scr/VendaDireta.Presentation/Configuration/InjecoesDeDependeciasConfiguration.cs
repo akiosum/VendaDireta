@@ -20,4 +20,12 @@ public static class InjecoesDeDependeciasConfiguration
             .AsImplementedInterfaces()
             .WithScopedLifetime());
     }
+    
+    private static void AdicionarInfraestrura(this IServiceCollection services)
+    {
+        services.Scan(scan => scan.FromAssemblies(DomainAssembly.Assembly, InfrastuctureAssembly.Assembly)
+            .AddClasses(filter => filter.AssignableTo<IInfrastructure>())
+            .AsImplementedInterfaces()
+            .WithScopedLifetime());
+    }
 }

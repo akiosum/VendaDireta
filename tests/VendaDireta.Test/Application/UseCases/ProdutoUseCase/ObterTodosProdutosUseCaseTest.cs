@@ -3,9 +3,8 @@ using Moq;
 using VendaDireta.Aplication.Requests.Produto;
 using VendaDireta.Aplication.UseCases.ProdutoUseCase;
 using VendaDireta.Domain.Contracts.Repositories;
-using VendaDireta.Domain.Entities;
 
-namespace VendaDireta.Test.Application.UseCases;
+namespace VendaDireta.Test.Application.UseCases.ProdutoUseCase;
 
 public class ObterTodosProdutosUseCaseTest
 {
@@ -16,7 +15,7 @@ public class ObterTodosProdutosUseCaseTest
         Mock<ISender> senderMock = new Mock<ISender>();
         Mock<IProdutoRepository> produtoRepositoryMock = new Mock<IProdutoRepository>();
         
-        List<Produto> produtos =
+        List<VendaDireta.Domain.Entities.Produto> produtos =
         [
             new("Descricao 1", "Descricao 1"),
             new("Descricao 2", "Descricao 2"),

@@ -10,8 +10,6 @@ using VendaDireta.Presentation.Abstractions;
 namespace VendaDireta.Presentation.Controllers.v1;
 
 [Route("v1/[controller]")]
-[ProducesResponseType(typeof(Error), StatusCodes.Status400BadRequest)]
-[ProducesResponseType(typeof(Error), StatusCodes.Status404NotFound)]
 public class ProdutoController(ISender sender) : ApiController(sender)
 {
     [HttpPost]
