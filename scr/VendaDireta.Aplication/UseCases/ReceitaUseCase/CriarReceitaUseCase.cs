@@ -2,14 +2,15 @@
 using Mapster;
 using MediatR;
 using VendaDireta.Aplication.Abstractions;
+using VendaDireta.Aplication.Contracts.Patterns;
 using VendaDireta.Aplication.Dto.Receita;
-using VendaDireta.Aplication.Patterns.Builders;
 using VendaDireta.Aplication.Requests.Receita;
-using VendaDireta.Domain.Entities;
 
 namespace VendaDireta.Aplication.UseCases.ReceitaUseCase;
 
-public class CriarReceitaUseCase(ISender sender)
+public class CriarReceitaUseCase(
+    ISender sender,
+    IReceitaBuilder receitaBuilder)
     : BaseUseCase<CriarReceitaRequest>(sender)
 {
     public override async Task<BaseResult> Handle(
@@ -17,10 +18,8 @@ public class CriarReceitaUseCase(ISender sender)
         CancellationToken cancellationToken)
     {
         CriarReceitaDto receita = request.Adapt<CriarReceitaDto>();
-
-        ReceitaBuilder builder = new ReceitaBuilder(receita);
-        List<Receita> receitas = builder
-            .Iniciar()
+        List<ReceitaDto> receitas = receitaBuilder
+            .Iniciar(receita)
             .AdicionarData()
             .AdicionarDocumento()
             .AdicionarValores()
