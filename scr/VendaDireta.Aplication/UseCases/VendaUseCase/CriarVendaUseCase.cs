@@ -17,13 +17,19 @@ public class CriarVendaUseCase(
         CriarVendaRequest request,
         CancellationToken cancellationToken)
     {
-        ProcessarPagamento(request);
+        BaseResult<List<PagamentoDto>> resultPagamento = ProcessarPagamento(request);
+        if (resultPagamento.IsFailure)
+        {
+            return resultPagamento;
+        }
 
         return BaseResult.Sucess();
     }
 
-    private void ProcessarPagamento(CriarVendaRequest request)
+    private BaseResult<List<PagamentoDto>> ProcessarPagamento(CriarVendaRequest request)
     {
+        List<PagamentoDto> pagamentos = [];
+
         foreach (CriarPagamentoRequest pagamento in request.Pagamentos)
         {
             IPagamentoService pagamentoService = pagamentoFactory.ObterPagamento(pagamento.TipoPagamento);
@@ -35,6 +41,14 @@ public class CriarVendaUseCase(
                 pagamento.Parcelas);
 
             BaseResult<PagamentoDto> pagamentoCriado = pagamentoService.Processar(pagamentoDto);
+            if (pagamentoCriado.IsFailure)
+            {
+                return BaseResult.Failure<List<PagamentoDto>>(pagamentoCriado.Error);
+            }
+
+            pagamentos.Add(pagamentoCriado.Value);
         }
+
+        return pagamentos;
     }
 }

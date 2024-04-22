@@ -21,8 +21,8 @@ public class ReceitaService(IReceitaBuilder receitaBuilder) : IPagamentoService
 
         List<ReceitaDto> receitas = receitaBuilder
             .Iniciar(receita)
-            .AdicionarData()
             .AdicionarDocumento()
+            .AdicionarData()
             .AdicionarValores()
             .Buildar();
 

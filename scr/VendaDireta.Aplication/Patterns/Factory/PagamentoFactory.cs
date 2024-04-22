@@ -2,6 +2,7 @@
 using VendaDireta.Aplication.Contracts.Services;
 using VendaDireta.Aplication.Services;
 using VendaDireta.Domain.Enums;
+using VendaDireta.Shared.Messages;
 
 namespace VendaDireta.Aplication.Patterns.Factory;
 

@@ -9,7 +9,7 @@ using VendaDireta.Aplication.Requests.Receita;
 namespace VendaDireta.Aplication.UseCases.ReceitaUseCase;
 
 public class CriarReceitaUseCase(
-    ISender sender,
+    ISender sender, 
     IReceitaBuilder receitaBuilder)
     : BaseUseCase<CriarReceitaRequest>(sender)
 {
