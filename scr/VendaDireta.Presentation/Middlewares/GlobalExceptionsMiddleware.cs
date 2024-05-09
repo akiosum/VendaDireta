@@ -1,5 +1,4 @@
 ﻿using System.Net;
-using FastResults.Enums;
 using FastResults.Errors;
 using FastResults.Results;
 using FluentValidation;

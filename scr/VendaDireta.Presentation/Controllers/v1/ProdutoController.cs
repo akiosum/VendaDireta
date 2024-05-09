@@ -39,4 +39,11 @@ public class ProdutoController(ISender sender) : ApiController(sender)
         BaseResult<ProdutoDto> result = await sender.Send(request, cancellationToken);
         return Response(result);
     }
+
+    [HttpPut("id")]
+    [ProducesResponseType(typeof(ProdutoDto), StatusCodes.Status200OK)]
+    public async Task<ActionResult<ProdutoDto>> Atualizar()
+    {
+        return Ok();
+    }
 }

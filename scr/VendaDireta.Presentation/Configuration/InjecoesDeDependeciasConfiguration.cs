@@ -15,6 +15,7 @@ public static class InjecoesDeDependeciasConfiguration
         services.AdicionarRepository();
         services.AdicionarServices();
         services.AdicionarPatterns();
+        services.AdicionarInfraestrura();
 
         return services;
     }
