@@ -23,11 +23,10 @@ public class AtualizarProdutoUseCase(
             return produto;
         }
 
-        ProdutoDto dto = produto.Value;
-        Produto produtoMapeado = dto.Adapt<Produto>();
-        produtoMapeado.Atualizar(
+        Produto? produtoMapeado = await produtoRepository.ObterPorIdComDependencias(request.Id, cancellationToken);
+        produtoMapeado!.Atualizar(
             request.Descricao,
-            request.DescricaoReduzida, 
+            request.DescricaoReduzida,
             request.Preco);
 
         await produtoRepository.Atualizar(produtoMapeado, cancellationToken);
