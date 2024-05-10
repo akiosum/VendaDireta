@@ -14,10 +14,24 @@ public class ProdutoPreco : Entity
 
     #region Constructors
 
+    public ProdutoPreco()
+    {
+    }
+
     public ProdutoPreco(decimal preco)
     {
         Preco = preco;
     }
 
     #endregion Constructors
+
+    #region Methods
+
+    public void Atualizar(decimal valor)
+    {
+        Preco = valor;
+        DataDeAlteracao = DateTime.Now;
+    }
+
+    #endregion Methods
 }

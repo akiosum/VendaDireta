@@ -1,5 +1,4 @@
 ﻿using System.Net;
-using FastResults.Errors;
 using FastResults.Results;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -40,10 +39,12 @@ public class ProdutoController(ISender sender) : ApiController(sender)
         return Response(result);
     }
 
-    [HttpPut("id")]
+    [HttpPut("atualizar")]
     [ProducesResponseType(typeof(ProdutoDto), StatusCodes.Status200OK)]
-    public async Task<ActionResult<ProdutoDto>> Atualizar()
+    public async Task<ActionResult<ProdutoDto>> Atualizar(AtualizarProdutoRequest request,
+        CancellationToken cancellationToken)
     {
-        return Ok();
+        BaseResult<ProdutoDto> result = await sender.Send(request, cancellationToken);
+        return Response(result);
     }
 }

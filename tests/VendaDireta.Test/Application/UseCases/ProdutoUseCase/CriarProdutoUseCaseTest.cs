@@ -19,7 +19,6 @@ public class CriarProdutoUseCaseTest
             "Teste",
             "Teste",
             10,
-            0,
             10);
 
         var criarProdutoUseCase = new CriarProdutoUseCase(senderMock.Object, produtoRepositoryMock.Object);

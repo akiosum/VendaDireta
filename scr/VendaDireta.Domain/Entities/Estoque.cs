@@ -2,7 +2,7 @@
 
 namespace VendaDireta.Domain.Entities;
 
-public class Estoque : Entity
+public class Estoque() : Entity
 {
     #region Properties
 
@@ -14,7 +14,7 @@ public class Estoque : Entity
 
     #region Constructors
 
-    public Estoque(decimal quantidade)
+    public Estoque(decimal quantidade) : this()
     {
         Quantidade = quantidade;
         Produto = new Produto();

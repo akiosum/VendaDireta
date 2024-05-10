@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using VendaDireta.Domain.Contracts.Repositories;
 using VendaDireta.Infrastructure.Data;
 
 namespace VendaDireta.Presentation.Configuration;
@@ -9,7 +10,7 @@ public static class BancoDeDadosConfiguration
         this IServiceCollection services,
         IConfiguration configuration)
     {
-        services.AddDbContext<VendaDiretaContext>(options =>
+        services.AddDbContext<IUnitOfWork, VendaDiretaContext>(options =>
             options.UseSqlServer(configuration.GetConnectionString("Database")));
 
         services.AddHostedService<MigrationsRunner<VendaDiretaContext>>();

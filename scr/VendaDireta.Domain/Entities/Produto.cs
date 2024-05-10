@@ -10,6 +10,7 @@ public class Produto() : Entity
     public string DescricaoReduzida { get; private set; } = string.Empty;
     public ICollection<ProdutoPreco> ProdutoPreco { get; private set; } = new List<ProdutoPreco>();
     public ICollection<Estoque> Estoque { get; private set; } = new List<Estoque>();
+    public ICollection<VendaItem> VendaItem { get; private set; } = new List<VendaItem>();
 
     #endregion Properties
 
@@ -33,6 +34,18 @@ public class Produto() : Entity
     {
         ProdutoPreco = new List<ProdutoPreco> { new(preco) };
         Estoque = new List<Estoque> { new(estoqueInicial) };
+    }
+
+    public void Atualizar(string descricao, string descricaoReduzida, decimal preco)
+    {
+        Descricao = descricao;
+        DescricaoReduzida = descricaoReduzida;
+        DataDeAlteracao = DateTime.Now;
+
+        foreach (ProdutoPreco produtoPreco in ProdutoPreco)
+        {
+            produtoPreco.Atualizar(preco);
+        }
     }
 
     #endregion Methods

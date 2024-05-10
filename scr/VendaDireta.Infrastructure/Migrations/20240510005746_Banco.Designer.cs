@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using VendaDireta.Infrastructure.Data;
 
@@ -11,9 +12,11 @@ using VendaDireta.Infrastructure.Data;
 namespace VendaDireta.Infrastructure.Migrations
 {
     [DbContext(typeof(VendaDiretaContext))]
-    partial class VendaDiretaContextModelSnapshot : ModelSnapshot
+    [Migration("20240510005746_Banco")]
+    partial class Banco
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

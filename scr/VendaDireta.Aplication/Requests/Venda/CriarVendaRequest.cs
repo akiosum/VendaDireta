@@ -15,5 +15,5 @@ public record CriarItemRequest(
 
 public record CriarPagamentoRequest(
     TipoPagamento TipoPagamento,
-    decimal Valor,
+    decimal ValorPago,
     int Parcelas = 1);

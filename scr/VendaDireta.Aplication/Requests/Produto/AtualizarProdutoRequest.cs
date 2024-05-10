@@ -3,8 +3,8 @@ using VendaDireta.Aplication.Dto.Produto;
 
 namespace VendaDireta.Aplication.Requests.Produto;
 
-public record CriarProdutoRequest(
+public record AtualizarProdutoRequest(
+    Guid Id,
     string Descricao,
     string DescricaoReduzida,
-    decimal Preco,
-    decimal EstoqueInicial) : IRequestUseCase<CriarProdutoDto>;
+    decimal Preco) : IRequestUseCase<ProdutoDto>;
