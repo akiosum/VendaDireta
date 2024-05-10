@@ -8,6 +8,7 @@ using VendaDireta.Aplication.Dto.Pagamento;
 using VendaDireta.Aplication.Requests.Venda;
 using VendaDireta.Domain.Contracts.Repositories;
 using VendaDireta.Domain.Entities;
+using VendaDireta.Domain.Enums;
 
 namespace VendaDireta.Aplication.UseCases.VendaUseCase;
 
@@ -15,6 +16,7 @@ public class CriarVendaUseCase(
     ISender sender,
     IPagamentoFactory pagamentoFactory,
     IVendaRepository vendaRepository,
+    IEstoqueRepository estoqueRepository,
     IUnitOfWork unitOfWork)
     : BaseUseCase<CriarVendaRequest>(sender)
 {
@@ -23,8 +25,8 @@ public class CriarVendaUseCase(
         CancellationToken cancellationToken)
     {
         Venda venda = Criar(request);
+        await ProcessarEstoque(venda, cancellationToken);
 
-        vendaRepository.InserirSemSave(venda);
         await unitOfWork.SaveChangesAsync(cancellationToken);
 
         return BaseResult.Sucess();
@@ -36,8 +38,23 @@ public class CriarVendaUseCase(
         List<VendaItem> itens = request.Itens.Adapt<List<VendaItem>>();
         List<VendaPagamento> pagamentos = request.Pagamentos.Adapt<List<VendaPagamento>>();
         venda.Criar(itens, pagamentos);
+        vendaRepository.InserirSemSave(venda);
 
         return venda;
+    }
+
+    private async Task ProcessarEstoque(Venda venda,
+        CancellationToken cancellationToken)
+    {
+        foreach (VendaItem item in venda.VendaItem)
+        {
+            List<Estoque> estoques = await estoqueRepository.ObterTodosPorProduto(item.IdProduto, cancellationToken);
+            foreach (Estoque estoque in estoques)
+            {
+                estoque.AjustarSaldo(item.Quantidade, TipoEstoque.Saida);
+                estoqueRepository.AtualizarSemSave(estoque);
+            }
+        }
     }
 
     private BaseResult<List<PagamentoDto>> ProcessarPagamento(CriarVendaRequest request)

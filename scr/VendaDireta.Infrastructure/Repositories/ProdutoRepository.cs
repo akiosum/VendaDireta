@@ -16,7 +16,7 @@ public class ProdutoRepository(VendaDiretaContext context) :
             .AsNoTracking()
             .Include(p => p.ProdutoPreco)
             .Include(p => p.Estoque)
-            .FirstOrDefaultAsync(cancellationToken);
+            .FirstOrDefaultAsync(p => p.Id == id, cancellationToken);
 
         return produto;
     }
